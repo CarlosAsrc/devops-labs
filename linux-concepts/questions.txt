@@ -1,0 +1,33 @@
+1. What the Cron services does in linux? how to use it? 
+
+Cron can be described as a Linux service daemon that is loaded at boot time and is responsible for running tasks at previously scheduled times. This schedule can be done using Crontab, which is a table containing when and which commands should be executed, and this table is checked every minute by the daemon. Each row in this table contains the definition of a command or process.
+To use Cron, you can add settings in Crontab. To do this, follow the steps below:
+- run the "crontab -e" command to edit crontab in "var/spool/cron", and select one of the editors.
+- configure a job for each line in the following format:
+	minute (0-59) hour (0-23) day (1-31) month (1-12) dayOfWeek (0-6) command
+Example job that runs the backup-home.sh file at 5AM on day 1 of every month:
+0 5 1 * * ~ / backup-home.sh
+
+
+
+
+
+2. What is SystemD? How to use it?
+
+Systemd is a service management system for Linux. Basically, in addition to being the initial daemon that start at boot and stop at shut down, it involves daemons, libraries, and various utilities like systemctl, much used to control units, of which the most common type is the service. Other types also include device, socket, mount, target, path, among others. These units are configured as plain text files in a declarative language.
+The systemctl can be used in the terminal as follows:
+To list all installed services that have any startup scripts:
+	$ systemctl list-unit-files --type=service
+And to perform operations with these services, you can use:
+	$ systemctl [start, stop, restart, reload, status, is-active] name.service
+Some drives are not enabled to start automatically at boot time, and need to be configured as follows:
+	$ systemctl enable name.service
+Besides the systemctl, there are other very useful utilities like journalctl, notify, loginctl, etc.
+
+
+
+
+
+3. Why linux is so important to DevOps? Explain Why?
+
+Most of the software used in DevOps was originally made to run on Linux-based systems, most likely because it is a stable and reliable operating system compared to the others. In addition, the vast majority of cloud vendors use linux in production. All this adherence of Linux-based systems is due to many factors, such as better hardware management, better compatibility of virtual machines with server hardware added to the lowest cost of licensing, and allows wide customization, which is ideal for server configuration and potentiation of new solutions.
