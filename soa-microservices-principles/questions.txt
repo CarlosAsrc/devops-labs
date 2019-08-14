@@ -1,0 +1,17 @@
+1. Why SOA/Microservices is important for DevOps Engineering? 
+
+The intrinsic features and benefits of microservices, which can be described as an evolution of certain aspects of SOA, add great compatibility with the DevOps culture. Considering that DevOps seeks to meet certain classic aspects, such as deployability, reliability, availability, scalability, modifiability, and management, the relationship of these criteria to the nature of the microservices, which is the granularity and separation of responsibilities, is visible, and all these benefits can be obtained more quickly, safely and resilient through working with DevOps, increasing productivity in both development and operation.
+
+
+
+2. If I run my software in containers in bare-metal could I consider my architecture cloud-native? Why?
+
+Considering that a cloud-native application means that it is designed to meet criteria such as change, scale, resiliency, and manageability, with maximum utilization of host platform elasticity, an application running on bare-metal containers does not evidence a cloud-native architecture, since bare-metal implies taking ownership of the responsibilities that are already provisioned in the cloud. Moreover, the use of container does not necessarily imply the use of a cloud-native architecture.
+
+3. Explain how the circuit-breaker pattern works. 
+
+The circuit-breaker is a pattern for fault tolerance that could cause great inconvenience in applications. Its operation consists of a function that monitors service call failures in a certain period of time, and according to a criterion, when an error is traced, it returns a treated error. This function encompasses three possible states, which are:
+ - Open: In this state, the associated service is considered not accessible and an error or useful information is returned.
+ - Half-Open: It is the transition state from open to closed, where checks are made to detect whether the problem still exists.
+ - Closed: Calls to services occur normally, and if failures that exceed acceptable criteria occurs, the status changes to open.
+In a microservice scenario, the pattern works very well because it allows the system to maintain an acceptable and tolerable level when several services fail to occur, causing depreciation of the user experience rather than total unavailability of the service.
