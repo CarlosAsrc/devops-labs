@@ -1,0 +1,21 @@
+Devops -  Culture and Principles.
+
+1. IF I'm doing deploy automation? I'm doing devops? Explain why is true or false?
+
+Operating deploy automation does not guarantee that DevOps is being practiced as a whole, since DevOps is more than simply automating deploy. However, an deploy automation is one of the indicators of a culture that must be continued in the organization as this is a possibility to take the time to bring the items from the backlog to production in a continuous stream. But to ensure that  DevOps culture is being cultivated, some metrics must be evaluated, such as operational efficiency, quality (success in deployments, errors in production), organizational effectiveness, customer value, and ultimately, the actual performance of Business.
+
+
+2. How do we improve the reliability of a system?(Tip: Look for SRE)
+
+According to SRE (Site Reliability System), which is a methodology for managing operations developed by Google, a team responsible for system reliability should spend 50% of the time on operational activities, and 50% developing new tools that service working automatically, not depending on human interaction to maintain its proper functioning. This team should be responsible for the availability, latency, performance, efficiency, change management, monitoring, emergency response, and capacity planning related to the system. Google's SRE teams also have 7 principles, which are: embrace risk, service level objectives (SLO), eliminate repetitive or unnecessary work, monitor distributed systems, automation, launch engineering, and simplicity.
+
+
+3. Reaserch about Postmortem and list the basic elements of a post-mortem analysis/report.
+
+Postmortem can be described as the practice of documenting, in some way, problems that were faced during some project, in order to propagate the learning of that event and prevent the problem from occurring again. It may be in the form of a questionnaire to the development team, a meeting, or even an informal conversation, provided that what has been reported is subsequently documented. A Postmortem can contain at least the following elements:
+Project Overview - In addition to data referring to the main characteristics of the project, here is more general information, in order to obtain a general perception.
+Project Rating - Valuation questions, about things that happened the right way, and things that went wrong, listing the reasons, and if possible, suggestions for improvement.
+Conclusions - Here should be described what steps should be taken to ensure that the problem does not occur, things that must be introduced or withdrawn in the project, among others.
+
+
+
