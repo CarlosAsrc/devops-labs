@@ -1,0 +1,15 @@
+node {
+    stage('preparation') {
+        git branch: 'tema-18', 
+        credentialsId: 'git-credentials',
+        url: 'https://github.com/CarlosAsrc/jts.devops.2019.1'   
+    }
+    
+    stage('deploy') {
+        dir("carlos-rodrigues/tema-18") {
+            withKubeConfig([credentialsId: 'kubernetes-certificate', serverUrl: 'https://192.168.99.100:8443']) {
+                sh 'kubectl apply -f kubernetes-deploy/'
+            }
+        }
+    }
+}

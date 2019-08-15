@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-deployment
+spec:
+  selector:
+    matchLabels:
+      app: calculator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: calculator
+    spec:
+      containers:
+      - name: calculator
+        image: carlosasrc/calculator:latest
+        ports:
+        - containerPort: 8080
