@@ -1,12 +1,12 @@
 node {
     stage('preparation') {
-        git branch: 'tema-16', 
+        git branch: 'master', 
         credentialsId: 'git-credentials',
-        url: 'https://github.com/CarlosAsrc/jts.devops.2019.1'   
+        url: 'https://github.com/CarlosAsrc/devops-labs'   
     }
 
     stage('run-stress-test') {
-        dir("carlos-rodrigues/tema-16") {
+        dir("gatling-stress-test") {
             sh "sbt gatling:test"
         }
     }
