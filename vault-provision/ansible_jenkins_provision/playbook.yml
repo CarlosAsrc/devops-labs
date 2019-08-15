@@ -1,0 +1,7 @@
+---
+- name: Vault provision
+  hosts: localhost
+  become_user: root
+  roles:
+        - role: roles/base
+        - role: roles/vault

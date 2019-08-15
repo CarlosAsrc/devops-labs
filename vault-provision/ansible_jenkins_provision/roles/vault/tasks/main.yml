@@ -1,0 +1,10 @@
+- name: download
+  unarchive:
+     remote_src: yes
+     src: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_linux_amd64.zip
+     dest: /usr/local/bin/
+     mode: "1777"
+- name: copy vault configuration file to home path
+  copy: 
+     src: ../config/vault_config.hcl 
+     dest: /home/

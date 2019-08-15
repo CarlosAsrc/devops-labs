@@ -1,0 +1,13 @@
+node {
+    stage('preparation') {
+        git branch: 'tema-19', 
+        credentialsId: 'git_credentials',
+        url: 'https://github.com/CarlosAsrc/jts.devops.2019.1'   
+    }
+
+    stage ("Provision") {
+        dir("carlos-rodrigues/tema-19/ansible_jenkins_provision") {
+            ansiblePlaybook playbook: 'playbook.yml', vaultCredentialsId: 'vault_password', credentialsId: 'system_credentials'
+        }
+    }
+}
