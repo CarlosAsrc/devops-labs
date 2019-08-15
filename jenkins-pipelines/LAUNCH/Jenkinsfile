@@ -1,0 +1,5 @@
+node {
+    stage('launch') {
+        sh 'docker run -d -p 8090:8080 carlosasrc/golang:0.1'
+    }
+}

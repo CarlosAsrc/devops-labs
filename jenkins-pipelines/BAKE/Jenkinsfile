@@ -1,0 +1,11 @@
+node {
+    stage('preparation') {
+        git branch: 'master', 
+        credentialsId: 'git-credentials',
+        url: 'https://github.com/CarlosAsrc/packer-golang-sample-config'   
+    }
+    
+    stage('bake') {
+        sh 'packer build template.json'
+    }
+}
