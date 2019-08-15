@@ -1,0 +1,29 @@
+---
+
+- name: Add Elasticsearch apt key
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+
+- name: Add Elasticsearch apt repository
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+    state: present
+
+- name: apt-get update
+  apt:
+    update-cache: yes
+  changed_when: 0
+
+- name: Install a list of packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - "apt-transport-https={{ apt_transport_https_version }}"
+    - "elasticsearch={{ es_version }}"
+
+- name: Start service Elasticsearch, if not started
+  service:
+    name: elasticsearch
+    state: started

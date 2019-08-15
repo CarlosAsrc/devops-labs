@@ -1,0 +1,12 @@
+---
+- name: NoSQL provision
+  hosts: "*"
+  become: yes
+  become_user: root
+  roles:
+        - role: roles/base
+        - role: roles/open-jdk-8
+        - role: roles/redis
+        - role: roles/es
+        - role: roles/cass
+        - role: roles/kafka

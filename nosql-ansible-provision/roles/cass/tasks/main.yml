@@ -1,0 +1,27 @@
+- name: Add cassandra apt key
+  apt_key:
+    url: https://www.apache.org/dist/cassandra/KEYS
+    state: present
+
+- name: Add Cassandra apt repository
+  apt_repository:
+    repo: deb http://www.apache.org/dist/cassandra/debian 311x main
+    state: present
+
+- name: apt-get update
+  apt:
+    update-cache: yes
+  changed_when: 0
+
+- name: Install a list of packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - apt-transport-https
+    - "cassandra={{ cass_version }}"
+
+- name: Start service Cassandra, if not started
+  service:
+    name: cassandra
+    state: started

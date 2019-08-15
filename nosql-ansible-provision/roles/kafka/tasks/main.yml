@@ -1,0 +1,22 @@
+- name: Install a list of packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - zookeeperd
+    - unzip
+
+- name: Ensure kafka directory exists
+  file:
+    path: "{{ kafka_path }}"
+    state: directory
+
+- name: Extract Kafka download
+  unarchive:
+    src: "http://mirror.nbtelecom.com.br/apache/kafka/{{ kafka_version }}"
+    dest: "{{ kafka_path }}"
+    extra_opts: [--strip-components=1]
+    remote_src: yes
+
+- name: Start Kafka server
+  shell: "{{ kafka_path }}/bin/kafka-server-start.sh {{ kafka_path }}/config/server.properties &"

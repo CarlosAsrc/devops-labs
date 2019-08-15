@@ -1,0 +1,2 @@
+kafka_path: /opt/kafka
+kafka_version: 2.3.0/kafka_2.11-2.3.0.tgz
