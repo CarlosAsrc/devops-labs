@@ -1,0 +1,13 @@
+node {
+    stage('preparation') {
+        git branch: 'tema-16', 
+        credentialsId: 'git-credentials',
+        url: 'https://github.com/CarlosAsrc/jts.devops.2019.1'   
+    }
+
+    stage('run-stress-test') {
+        dir("carlos-rodrigues/tema-16") {
+            sh "sbt gatling:test"
+        }
+    }
+}
