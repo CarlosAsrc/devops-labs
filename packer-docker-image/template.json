@@ -1,0 +1,36 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "golang",
+      "commit": true,
+      "changes": [
+        "ENTRYPOINT [\"go\", \"run\", \"/opt/calculator.go\"]"
+      ]
+    }
+  ],
+
+  "provisioners": [
+    {
+        "type": "file",
+        "source": "calculator.go",
+        "destination": "/opt/calculator.go"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "go get -u github.com/gorilla/mux"
+      ]
+    }
+  ],
+
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "carlosasrc/golang",
+        "tag": "0.1"
+      }
+    ]
+  ]
+}
