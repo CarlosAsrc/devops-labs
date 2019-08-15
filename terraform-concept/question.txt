@@ -1,0 +1,5 @@
+Terraform
+
+1. Research about Terraform and Ansible. Explain the differences and when use one or another.
+
+Both are DevOps tools that serve for provisioning and orchestration, possessing many similar points, with the intention of creating infrastructure as code and providing replicable environments with considerable configuration complexity. Both offer features for configuration management and orchestration. However, there are differences on the way of use and the real purpose. Ansible is a tool designed with a focus on configuration management, which seeks to maintain the integrity of the infrastructure with each change, using an abstraction that can be used in different environments. Terraform is a better tool for the orchestration of this infrastructure, in a higher level of abstraction and functionalities.  In terms of use, Terraform can be used with JSON or HCL (HashiCorp Configuration Language), thus using a declarative paradigm. Already the Ansible has a hybrid approach in the use of procedural, and in most cases, a declarative paradigm.
