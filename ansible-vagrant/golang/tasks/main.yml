@@ -1,0 +1,10 @@
+---
+- name: Install go
+  apt:
+    name: golang
+    state: present
+
+- name: Clone gorilla/mux
+  git:
+    repo: https://github.com/gorilla/mux
+    dest: /root/go/src/github.com/gorilla/mux

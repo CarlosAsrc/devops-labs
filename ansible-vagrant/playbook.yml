@@ -1,0 +1,11 @@
+---
+- name: Go microservice provision
+  hosts: "*"
+  become: yes
+  become_user: root
+  roles:
+        - provide-files
+        - base
+        - golang
+        - start
+        - pid-check

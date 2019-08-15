@@ -1,0 +1,6 @@
+---
+- name: Provide file into the Vagrant VM 
+  copy:
+        src: .
+        dest: /home/vagrant/
+        remote_src: yes

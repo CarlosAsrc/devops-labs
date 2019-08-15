@@ -1,0 +1,3 @@
+---
+- name: Start microservice
+  shell: go run calculator.go &

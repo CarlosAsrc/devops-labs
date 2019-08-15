@@ -1,0 +1,8 @@
+---
+- name: Search PID of microservice microservice
+  shell: if [ $(pidof calculator) ]; then echo RUNNING; else echo NOT RUNNING; fi;
+  register: status
+
+- name: Printing the process IDs obtained
+  debug:
+    msg: "{{status.stdout}}"
