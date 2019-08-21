@@ -1,0 +1,50 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "ubuntu:18.04",
+      "commit": "true",
+      "pull": false,
+      "changes": [
+        "EXPOSE 8082",
+        "ENTRYPOINT /opt/apache-tomcat-9.0.20/bin/catalina.sh run"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "apt-get update",
+        "apt-get install software-properties-common -y",
+        "apt-add-repository ppa:ansible/ansible -y",
+        "apt-get update",
+        "apt-get install ansible -y"
+      ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "playbooks/playbook.yml"
+    },
+    {
+      "type": "file",
+      "source": "Project-unspecified.war",
+      "destination": "/opt/apache-tomcat-9.0.20/webapps/"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "carlosasrc/tema-final-1",
+        "tag": "latest"
+      },
+      {
+        "type": "docker-push",
+        "login": "true",
+        "login_username": "usuario",
+        "login_password": "senha"
+      }
+    ]
+  ]
+}

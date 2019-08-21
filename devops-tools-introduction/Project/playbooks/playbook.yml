@@ -1,0 +1,26 @@
+---
+- name: Run ansible
+  hosts: localhost
+  become: yes
+  become_user: root
+  tasks:
+    - name: Download tomcat
+      get_url:
+        url: http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-9/v9.0.20/bin/apache-tomcat-9.0.20.tar.gz
+        dest: /tomcat.tar.gz
+
+    - name: Unzip tomcat
+      unarchive:
+        src: /tomcat.tar.gz
+        dest: /opt/
+        remote_src: yes
+
+    - name: Remove tomcat zip
+      shell: rm -rf tomcat.tar.gz
+      args:
+        warn: false
+
+    - name: Update repositories cache and install openjdk8 package
+      apt:
+        name: openjdk-8-jdk
+        update_cache: yes

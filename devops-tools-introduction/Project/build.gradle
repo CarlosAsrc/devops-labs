@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+
+test {
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
+}
+
+repositories {
+
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0"
+    testImplementation 'junit:junit:4.12'
+}
